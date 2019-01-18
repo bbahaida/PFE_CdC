@@ -8,12 +8,16 @@
 \usepackage{graphicx}
 \usepackage[french]{babel}
 \usepackage{tabu}
+\usepackage{biblatex}
+
+\addbibresource{references.bib}
 
 \title{Cahier des charges}
 
 \author{Brahim BAHAIDA}
 
-\date{Jeudi 17 janvier 2019}
+\date{Vendredi 18 Janvier 2019}
+
 
 
 
@@ -54,6 +58,8 @@ Brahim BAHAIDA  & Réalisateur du projet \\
  \hline
  1.0  & 17/01/2019 \\
 \hline
+ 1.1  & 18/01/2019 \\
+\hline
 \end{tabu}
 
 \section*{glossaire}
@@ -78,6 +84,8 @@ W3C  & World Wide Web Consortium \\
 \hline
 EF  & Exigence fonctionnelle \\
 \hline
+SoD  & Separation of duties \\
+\hline
 
 \end{tabu}
 \\
@@ -85,18 +93,14 @@ EF  & Exigence fonctionnelle \\
 Ce chapitre vise à présenter le contexte, le planning et les contraintes du projet.
 \section{Description du projet}
 
-Data Quality (DQ) est un concept et un terme de business désignant la qualité des données utilisées dans un but particulier. Souvent, le terme DQ s'applique à la qualité des données utilisées dans la prise de décisions des entreprises, mais il peut aussi désigner la qualité des données utilisées dans les recherches, les campagnes, les processus et plus encore.
-\\
-\\
-Une erreur dans un système de stockage de données ou un rapport de business intelligence peut sembler minime au premier abord. Il peut être tentant pour les analystes de l'ignorer ou de truquer les chiffres du mois. Peut-être qu'ils se diront : " Ce sera corrigé plus tard ".
-\\
-\\
-Cependant, si l'équipe chargée du data science ou du Business Intelligence ne comprend pas parfaitement pourquoi cela s'est produit, elle risque de se retrouver avec une erreur encore plus grande dans son prochain rapport ou dans les informations qu'elle fournira à la direction.
-\\
-\\
+Data Quality (DQ) est un concept et un terme de business désignant la qualité des données utilisées dans un but particulier. Souvent, le terme DQ s'applique à la qualité des données utilisées dans la prise de décisions des entreprises, mais il peut aussi désigner la qualité des données utilisées dans les recherches, les campagnes, les processus et plus encore \cite{datacleaner}.
+
+Une erreur dans un système de stockage de données ou un rapport de BI peut sembler minime au premier abord. Il peut être tentant pour les analystes de l'ignorer ou de truquer les chiffres du mois. Peut-être qu'ils se diront : " Ce sera corrigé plus tard "\cite{SeattleDataGuy}.
+
+Cependant, si l'équipe chargée du data science ou du BI ne comprend pas parfaitement pourquoi cela s'est produit, elle risque de se retrouver avec une erreur encore plus grande dans son prochain rapport ou dans les informations qu'elle fournira à la direction \cite{SeattleDataGuy}.
+
 L'objectif de ce projet est de concevoir et de développer une plateforme de gestion et d'amélioration de la qualité des données clients pour les institutions financières afin d'améliorer leur conformité réglementaire.
-\\
-\\
+
 Nous utiliserons le diagramme de contexte de la technique DFD (Data Flow Diagrams) pour illustrer les fonctionnalités de la plate-forme. 
 \\
 \\
@@ -109,14 +113,14 @@ Nous utiliserons le diagramme de contexte de la technique DFD (Data Flow Diagram
 
 \section{Planning}
 
-ce projet doit être complètement achevé au plus tard le début du mois de juillet 2019.
+Ce projet doit achever toutes les exigences prévues d'ici le début de juillet 2019.
 
 \section{Contraintes}
-Nous pouvons considérer les contraintes comme des exigences non fonctionnelles qui présentent des exigences internes pour le système et qui sont invisibles vis-à-vis de nos clients.
+Nous pouvons considérer les contraintes ci-dessous comme des exigences non fonctionnelles qui présentent des exigences internes pour le système et qui sont invisibles vis-à-vis de nos clients.
 \subsection{Accessibilité}
 Le système vise à atteindre au moins le niveau minimum d'accessibilité du Web (A) selon les niveaux d'accessibilité WCAG 2.0 établis par la WAI (Web Accessibility Initiative) du World Wide Web Consortium (W3C).
 \subsection{Responsive design}
-Pour rendre la plateforme conviviale, nous devons respecter les points suivants:
+Pour rendre la plateforme conviviale, la plate-forme doit respecter les points suivants:
 \begin{itemize}
     \item \textbf{Paramétrage HTML}
     \item \textbf{Mise en page flexible}
@@ -132,7 +136,7 @@ Cette plate-forme sera réalisée non pas pour un usage public via Internet mais
     \begin{itemize}
         \item \textbf{Manager:} il est chargé d'ajouter et d'éditer les configurations des bases de données et des paramètres, il peut générer le rapport de qualité des données.
         \\
-        \item \textbf{User:} il est un simple utilisateur qui peut accéder aux fonctionnalités de la plateforme mais il ne peut pas ajouter ou modifier les configurations.
+        \item \textbf{Simpleuser:} il est un simple utilisateur qui peut accéder aux fonctionnalités de la plateforme mais il ne peut pas ajouter ou modifier les configurations.
         \\
         \item \textbf{Superuser:} Il est chargé d'ajouter de nouveaux utilisateurs et de modifier leurs rôles, mais il n'aura pas accès aux autres fonctionnalités de la plateforme pour respecter au mieux le principe du SoD.
     \end{itemize}
@@ -149,7 +153,7 @@ Système en réponse à une demande présentée par un utilisateur. La figure su
 \includegraphics[width=\textwidth]{img/pages.jpg}\\
 \\
 
-A ce niveau, nous devons spécifier nos exigences en langage naturel, en utilisant les fiche GABARIT-VOLERE.
+A ce niveau, nous devons spécifier nos exigences en langage naturel, en utilisant les fiche GABARIT-VOLERE\cite{volere}.
 \\
 \\
 \noindent\fbox{%
@@ -393,7 +397,7 @@ A ce niveau, nous devons spécifier nos exigences en langage naturel, en utilisa
         \qquad \textbf{Type d'exigence:} Exigence fonctionnelle
         \\
         \\
-        \textbf{Cas d’utilisation:} Visualiser le état d'exécution d'un job
+        \textbf{Cas d’utilisation:} Consulter l'état d'exécution d'un job
         \\
         \\
         \textbf{Description :} le système doit permettre au Manger de visualiser le état d'exécution d'un job
@@ -465,8 +469,64 @@ A ce niveau, nous devons spécifier nos exigences en langage naturel, en utilisa
         \textbf{Exigences dépendantes:} EF1
     }%
 }
-
-Ci-dessous, le diagramme des cas d’utilisation du système,
+\\
+\\
+\\
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+        \textbf{Numero d'exigence:} EF13
+        \qquad \textbf{Type d'exigence:} Exigence fonctionnelle
+         \\
+        \\
+        \textbf{Cas d’utilisation:} Choisir un algorithme
+        \\
+        \\
+        \textbf{Description :} le système doit permettre au Manager de choisir un algorithme pour l'appliquer.
+        \\
+        \\
+        \textbf{Acteur:} Manager
+        \\
+        \\
+        \textbf{Contentement du maître d’ouvrage:} 3
+        \\
+        \\
+        \textbf{Mécontentement du maître d’ouvrage:} 3
+        \\
+        \\
+        \textbf{Exigences dépendantes:} EF1
+    }%
+}
+\\
+\\
+\\
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+        \textbf{Numero d'exigence:} EF14
+        \qquad \textbf{Type d'exigence:} Exigence fonctionnelle
+         \\
+        \\
+        \textbf{Cas d’utilisation:} Paramétrer l'approche de l'analyse de qualité  
+        \\
+        \\
+        \textbf{Description :} le système doit fournir au Manager deux approches paramétrables d'analyse de la qualité, une approche basée sur des règles et une partie basée sur une analyse automatique utilisant les techniques NLP.
+        \\
+        \\
+        \textbf{Acteur:} Manager
+        \\
+        \\
+        \textbf{Contentement du maître d’ouvrage:} 3
+        \\
+        \\
+        \textbf{Mécontentement du maître d’ouvrage:} 3
+        \\
+        \\
+        \textbf{Exigences dépendantes:} EF1
+    }%
+}
+\\
+\\
+\\
+Ci-dessous, nous avons regroupé ces exigences à l'aide du diagramme de cas d'utilisation du langage UML,
 \\
 \\
 \begin{figure}[h!]
@@ -474,13 +534,13 @@ Ci-dessous, le diagramme des cas d’utilisation du système,
   \includegraphics[width=\textwidth]{img/UseCaseDiagram.jpg}
 \end{figure}
 
-
+\newpage
 \section{Specifications techniques} 
 \subsection{Les langages de développement}
 Ces technologies seront utilisées pour développer cette plateforme:
 \begin{itemize}
     \item \textbf{Backend} Java en utilisant Spring boot.
-    \item \textbf{Frontend} Javascript en utilisant Angular.
+    \item \textbf{Frontend} Typescripts en utilisant Angular.
 \end{itemize}
 
 \subsection{Les conventions de développement}
@@ -490,4 +550,6 @@ le développeur doit respecter les conventions suivantes:
     \item \textbf{SOLID:} la plate-forme doit être en conformité avec les principes SOLID.
     \item \textbf{Documentation:} la plate-forme doit offrir des documentations via Java-doc, Swagger et CompoDoc.
 \end{itemize}
+
+\printbibliography[title={Références}]
 \end{document}
